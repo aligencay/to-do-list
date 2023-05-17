@@ -28,6 +28,13 @@ listContainer.addEventListener("click", function(e){
     }
 }, false);
 
+inputBox.addEventListener("keyup", function(event) {
+  if (event.keycode === 13) {
+    event.preventDefault();
+    addTask();
+  }
+});
+
 function saveData(){
     localStorage.setItem("data",listContainer.innerHTML);
 }
