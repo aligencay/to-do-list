@@ -29,7 +29,7 @@ listContainer.addEventListener("click", function(e){
 }, false);
 
 inputBox.addEventListener("keyup", function(event) {
-  if (event.keycode === 13) {
+  if (event.key === 'Enter') {
     event.preventDefault();
     addTask();
   }
