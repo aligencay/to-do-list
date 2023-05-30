@@ -3,7 +3,11 @@ const listContainer = document.getElementById("list-container");
 
 function addTask(){
     if(inputBox.value === '' || inputBox.value.trim() === ''){
-        alert("Please enter a task");
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'You cannot add an empty task!',
+          })
     }
     else{
         let li = document.createElement("li");
