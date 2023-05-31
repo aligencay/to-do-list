@@ -14,7 +14,7 @@ git clone https://github.com/aligencay/to-do-list.git
 
 ## Çalıştırma
 
-- [https://color-palette-rho.vercel.app](https://to-do-list-aligencay.vercel.app/)
+- https://to-do-list-aligencay.vercel.app
 
 Linkini kullanarak projemi daha detaylı inceleyebilirsiniz.
 
