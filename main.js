@@ -13,9 +13,16 @@ function addTask(){
         let li = document.createElement("li");
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
+        
         let span = document.createElement("span");
         span.innerHTML = "\u00d7";
+        span.classList.add("delete");
         li.appendChild(span);
+        
+        let edit = document.createElement("span");
+        edit.innerHTML = "✎";
+        edit.classList.add("edit");
+        li.appendChild(edit);
     }
     inputBox.value = '';
     saveData();
@@ -26,9 +33,12 @@ listContainer.addEventListener("click", function(e){
         e.target.classList.toggle("checked");
         saveData();
     }
-    else if(e.target.tagName === "SPAN"){
+    else if(e.target.classList.contains("delete")){
         e.target.parentElement.remove();
         saveData();
+    }
+    else if(e.target.classList.contains("edit")){
+        editTask(e);
     }
 }, false);
 
@@ -45,6 +55,18 @@ function saveData(){
 
 function showList(){
     listContainer.innerHTML = localStorage.getItem("data");
+}
+
+function editTask(event){
+    let listItem = event.target.parentElement;
+    let taskSpan = listItem.firstChild;
+
+    let newTaskText = prompt("Edit your task below", taskSpan.textContent);
+
+    if (newTaskText !== null && newTaskText.trim() !== "") {
+        taskSpan.textContent = newTaskText;
+        saveData();
+    }
 }
 
 showList();
